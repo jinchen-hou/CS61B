@@ -107,19 +107,18 @@ public class IntList {
         if (A == null && B == null) {
             return null;
         }
+        IntList newClist;
+        if (A == null && B != null) {
+            newClist = B;
+        } else {
         IntList copyList;
         copyList = A;
-
         IntList cList = new IntList(copyList.first, null);
-        IntList newClist;
         newClist = cList;
-        if (A == null && B != null) {
-            cList = B;
-        } else {
-            while (copyList.rest != null) {
-                copyList = copyList.rest;
-                cList.rest = new IntList(copyList.first, null);
-                cList = cList.rest;
+        while (copyList.rest != null) {
+            copyList = copyList.rest;
+            cList.rest = new IntList(copyList.first, null);
+            cList = cList.rest;
             }
             cList.rest = B;
         }

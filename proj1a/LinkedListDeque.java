@@ -6,7 +6,7 @@ import java.util.List;
 
 public class LinkedListDeque<T> {
 
-    private class ListNode<T> {
+    public class ListNode<T> {
         ListNode<T> prev;
         T object;
         ListNode<T> next;

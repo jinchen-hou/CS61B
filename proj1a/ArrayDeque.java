@@ -19,12 +19,12 @@ public class ArrayDeque<T> {
         size = 0;
     }
 
-    public int length(){
+    private int length(){
         return items.length;
     }
 
 
-    public boolean isFull(){
+    private boolean isFull(){
         return size == items.length;
     }
 
@@ -190,26 +190,26 @@ public class ArrayDeque<T> {
         System.arraycopy(other.items, 0, items, 0, other.size);
     }
 
-    public static void main(String[] args) {
-        ArrayDeque<Integer> A = new ArrayDeque<>();
-        for (int i =0; i<10; i++) {
-            A.addFirst(i);
-        }
-//        A.addLast(4);
-//        A.addLast(45);
-        A.printDeque();
+//     public static void main(String[] args) {
+//         ArrayDeque<Integer> A = new ArrayDeque<>();
+//         for (int i =0; i<10; i++) {
+//             A.addFirst(i);
+//         }
+// //        A.addLast(4);
+// //        A.addLast(45);
+//         A.printDeque();
 
-        A.removeFirst();
-        A.printDeque();
+//         A.removeFirst();
+//         A.printDeque();
 
-        A.removeLast();
-//        System.out.println(A);
-        A.printDeque();
+//         A.removeLast();
+// //        System.out.println(A);
+//         A.printDeque();
 
 
-        A.get(2);
-        System.out.println(A.length());
-        System.out.println(A.plusOne(11));
-    }
+//         A.get(2);
+//         System.out.println(A.length());
+//         System.out.println(A.plusOne(11));
+//     }
 
 }

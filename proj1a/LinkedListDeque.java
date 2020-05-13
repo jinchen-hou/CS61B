@@ -94,17 +94,38 @@ public class LinkedListDeque<T> {
         return lastToRemove.object;
     }
 
-    public static void main(String[] args) {
-        LinkedListDeque L = new LinkedListDeque();
-        L.addFirst(5);
-        L.addFirst("apple");
-        L.addFirst(12);
-        L.addLast("pineapple");
-//        System.out.println(L.get(3));
+    public T getRecursive(int index) {
+        if (head.next.object == head.object) {
+            return null;
+        }
+
+        if (index > size - 1) {
+            return null;
+        }
+        int cnt = 0;
+        return getRecursiveHelper(cnt, head, index);
+
+    }
+
+    private T getRecursiveHelper(int cnt, ListNode<T> curNode, int index) {
+        if (cnt == index) {
+            return curNode.next.object;
+        }
+        return getRecursiveHelper(cnt + 1, curNode.next, index);
+    }
+
+//    public static void main(String[] args) {
+//        LinkedListDeque L = new LinkedListDeque();
+//        L.addFirst(5);
+//        L.addFirst("apple");
+//        L.addFirst(12);
+//        L.addLast("pineapple");
+//        L.printDeque();
+//        System.out.println(L.getRecursive(0));
 //        System.out.println(L.isEmpty());
 
-        System.out.println(L.removeLast());
-        L.printDeque();
+//        System.out.println(L.removeLast());
+
 
     }
 

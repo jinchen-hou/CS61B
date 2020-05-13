@@ -5,6 +5,19 @@ import java.util.List;
  */
 
 public class LinkedListDeque<T> {
+
+    private class ListNode<T> {
+        ListNode<T> prev;
+        T object;
+        ListNode<T> next;
+
+        public ListNode(T item){
+            this.prev = null;
+            this.object = item;
+            this.next = null;
+        }
+    }
+
     private int size;
     ListNode<T> head;
     ListNode<T> tail;
@@ -97,15 +110,5 @@ public class LinkedListDeque<T> {
 
 }
 
-class ListNode<T> {
-    ListNode<T> prev;
-    T object;
-    ListNode<T> next;
 
-    public ListNode(T item){
-        this.prev = null;
-        this.object = item;
-        this.next = null;
-    }
-}
 

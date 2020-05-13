@@ -1,8 +1,4 @@
 import java.util.List;
-/**
- * LinkedListDeque
- * @author Jinchen
- */
 
 public class LinkedListDeque<T> {
 

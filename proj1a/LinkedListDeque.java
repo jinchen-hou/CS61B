@@ -6,12 +6,12 @@ import java.util.List;
 
 public class LinkedListDeque<T> {
 
-    public class ListNode<T> {
+    private class ListNode<T> {
         ListNode<T> prev;
         T object;
         ListNode<T> next;
 
-        public ListNode(T item){
+        public ListNode(T item) {
             this.prev = null;
             this.object = item;
             this.next = null;
@@ -19,8 +19,8 @@ public class LinkedListDeque<T> {
     }
 
     private int size;
-    ListNode<T> head;
-    ListNode<T> tail;
+    private ListNode<T> head;
+    private ListNode<T> tail;
 
     public LinkedListDeque() {
         size = 0;
@@ -50,6 +50,12 @@ public class LinkedListDeque<T> {
     }
 
     public T get(int index) {
+        if (isEmpty()) {
+            return null;
+        }
+        if (index > size - 1) {
+            return null;
+        }
         ListNode<T> curNode = head;
         for (int i = 0; i <= index; i++) {
             curNode = curNode.next;
@@ -58,44 +64,50 @@ public class LinkedListDeque<T> {
     }
 
     public boolean isEmpty() {
-        if (size == 0){
+        if (size == 0) {
             return true;
         } else {
             return false;
         }
     }
 
-    public int size(){
+    public int size() {
         return size;
     }
 
-    public void printDeque(){
+    public void printDeque() {
         ListNode<T> toPrint = head.next;
         System.out.println();
-        for(int i =0; i < size; i++){
+        for (int i = 0; i < size; i++) {
             System.out.print(toPrint.object + " ");
             toPrint = toPrint.next;
         }
     }
 
-    public T removeFirst(){
+    public T removeFirst() {
+        if (isEmpty()) {
+            return null;
+        }
         ListNode<T> firstToRemove = head.next;
         head.next = head.next.next;
         head.next.prev = head;
-        size --;
+        size--;
         return firstToRemove.object;
     }
 
-    public T removeLast(){
+    public T removeLast() {
+        if (isEmpty()) {
+            return null;
+        }
         ListNode<T> lastToRemove = tail.prev;
         tail.prev = tail.prev.prev;
         tail.prev.next = tail;
-        size --;
+        size--;
         return lastToRemove.object;
     }
 
     public T getRecursive(int index) {
-        if (head.next.object == head.object) {
+        if (isEmpty()) {
             return null;
         }
 
@@ -116,18 +128,19 @@ public class LinkedListDeque<T> {
 
 //    public static void main(String[] args) {
 //        LinkedListDeque L = new LinkedListDeque();
-//        L.addFirst(5);
-//        L.addFirst("apple");
-//        L.addFirst(12);
-//        L.addLast("pineapple");
-//        L.printDeque();
+////        L.addFirst(5);
+////        L.addFirst("apple");
+////        L.addFirst(12);
+////        L.addLast("pineapple");
+////        L.printDeque();
 //        System.out.println(L.getRecursive(0));
-//        System.out.println(L.isEmpty());
-
+////        System.out.println(L.isEmpty());
+//
 //        System.out.println(L.removeLast());
+//    }
 
 
-    }
+}
 
 
 

@@ -22,12 +22,17 @@ public class TestPalindrome {
         assertFalse(palindrome.isPalindrome("cat"));
         assertFalse(palindrome.isPalindrome("Appa"));
         assertTrue(palindrome.isPalindrome("racecar"));
+        assertTrue(palindrome.isPalindrome("aba"));
     }
 
     @Test
     //test new method that overloads isPalindrome
     public void testIsPalindromeNew(){
-        CharacterComparator offByOne = new OffByOne();
-        assertTrue(palindrome.isPalindrome("flake",offByOne));
+        CharacterComparator obo = new OffByOne();
+        assertTrue(palindrome.isPalindrome("flake", obo));
+        assertTrue(palindrome.isPalindrome("", obo));
+        assertTrue(palindrome.isPalindrome("c", obo));
+        assertFalse(palindrome.isPalindrome("abba", obo));
+        assertFalse(palindrome.isPalindrome("aba", obo));
     }
 }
